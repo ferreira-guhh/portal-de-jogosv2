@@ -70,15 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 1000);
     }
-    
-    // --- Funções do Jogo ---
-    function limparDestaques() 
-    function atualizarInterface(newGameState) 
-    async function selecionarPeca(cell, linha, coluna) 
-    async function onCellClick(event) 
-    async function iniciarJogo() 
-
-    
+ 
     function limparDestaques() { document.querySelectorAll('.selected, .valid-move').forEach(el => el.classList.remove('selected', 'valid-move')); }
     
     function atualizarInterface(newGameState) {
@@ -124,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         timerPretas.textContent = formatarTempo(tempoPretas);
         pararTimer(); // Garante que nenhum timer antigo esteja rodando
 
-        const response = await fetch('/damas/start', { 
+        const response = await fetch('https://portal-de-jogos.onrender.com/damas/start', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ mode: gameMode }) // Envia o modo para o back-end
+            body: JSON.stringify({ mode: gameMode }) 
         });
         const newGameState = await response.json();
         atualizarInterface(newGameState); // A própria atualizarInterface vai iniciar o timer se for PvP

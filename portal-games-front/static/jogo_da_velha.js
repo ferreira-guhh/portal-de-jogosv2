@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
         jogoFinalizado = false;
         if (!gameMode) return;
         
-        const response = await fetch('/jdv/start', {
+        const response = await fetch('https://portal-de-jogos.onrender.com/jdv/play', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ mode: gameMode })
+            body: JSON.stringify({ linha: parseInt(linha), coluna: parseInt(coluna) })
         });
         const gameState = await response.json();
         atualizarInterface(gameState);

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const guessString = currentGuessArray.join('');
 
-        const response = await fetch('/termo/guess', {
+        const response = await fetch('https://portal-de-jogos.onrender.com/termo/guess', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ palavra: guessString })
@@ -156,13 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (tile) tile.classList.add('current-row');
         }
     }
-
-    function createKeyboard() 
-    function applyFeedback(palavraExibida, feedback, row) 
-    function updateKeyboardColors(letrasUsadas) 
-    function showMessage(msg, permanent = false) 
-    function shakeRow(row) 
-    function finalizarJogo(status, palavraSecreta) 
     
     // --- Funções Completas  ---
     function createKeyboard() {
@@ -252,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Inicialização ---
     createGrid();
     createKeyboard();
-    fetch('/termo/start', { method: 'POST' });
+    fetch('https://portal-de-jogos.onrender.com/termo/start', { method: 'POST' });
     document.addEventListener('keydown', (event) => {
         handleKeyInput(event.key);
     });

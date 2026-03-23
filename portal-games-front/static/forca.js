@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const theme = themeSelect.value;
         const difficulty = difficultySelect.value;
         
-        const response = await fetch('/start', {
+        const response = await fetch('https://portal-de-jogos.onrender.com/guess', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ theme, difficulty })
+            body: JSON.stringify({ letter: letra })
         });
         
         if (response.ok) {
